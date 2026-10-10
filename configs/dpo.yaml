@@ -13,3 +13,9 @@ max_grad_norm: 1.0
 standard_output: outputs/task1_dpo/standard
 length_output: outputs/task1_dpo/length_balanced
 results_dir: results/task1_dpo
+
+# evaluation (added for the task 1 evaluation scripts; identical for every condition)
+reward_max_length: 1280   # prompt (<768) + 256 generated tokens + chat template fit without cutting the response
+generation_batch_size: 16
+eval_batch_size: 4        # teacher-forced scoring batch, the full-vocab logits are the memory bottleneck
+word_limit_samples: 8     # sampled responses per word-limit prompt (10 prompts -> 80 responses per model)
