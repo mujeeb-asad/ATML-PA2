@@ -1,0 +1,24 @@
+{
+  "name": "reference",
+  "adapter": null,
+  "n_prompts": 200,
+  "reward_mean": 1.461628532409668,
+  "reward_std": 1.4597524340719332,
+  "kl_token_mean": 0.0,
+  "kl_sequence_mean": 0.0,
+  "entropy_mean": 1.0594663619995117,
+  "length_mean": 292.7699890136719,
+  "length_std": 246.16002335878994,
+  "length_iqr": 362.25,
+  "truncation_rate": 0.085,
+  "eos_rate": 0.915,
+  "generated_tokens": 58554,
+  "decoding": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true,
+    "max_new_tokens": 768,
+    "max_prompt_length": 256,
+    "seed": 6304
+  }
+}

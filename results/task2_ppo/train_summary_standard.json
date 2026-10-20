@@ -1,0 +1,15 @@
+{
+  "run": "standard",
+  "updates": 20,
+  "prompts_per_update": 1,
+  "ppo_epochs": 2,
+  "clip_epsilon": 0.2,
+  "kl_beta": 0.1,
+  "max_response_length": 512,
+  "seed": 6304,
+  "generated_tokens": 6133,
+  "wall_clock_s": 302.23011621399996,
+  "peak_vram_gb": 8.333683013916016,
+  "gpu": "NVIDIA L4",
+  "output": "/root/pa2/outputs/task2_ppo/standard"
+}

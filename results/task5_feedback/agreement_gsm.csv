@@ -1,0 +1,4 @@
+dataset,comparison,n,win_rate_first,judge_ties,judge_unparsed,judge_multiple_labels,identical_not_judged,agreement,verifier_decided_pairs,judge_prefers_correct,judge_ties_on_decided,judge_prefers_wrong,judge_decides_on_verifier_ties
+gsm,rlvr_vs_sft,300,0.5,294,0,2,235,0.96,6,0.0,1.0,0.0,0.02040816326530612
+gsm,rlaif_vs_sft,300,0.48833333333333334,293,0,2,242,0.9633333333333334,8,0.25,0.75,0.0,0.017123287671232876
+gsm,rlaif_vs_rlvr,300,0.49333333333333335,290,0,4,241,0.9466666666666667,10,0.2,0.8,0.0,0.027586206896551724

@@ -12,3 +12,10 @@ policies:
   grpo: outputs/task3_grpo/standard
   rlvr: checkpoints/rlvr_policy
   rlaif: checkpoints/rlaif_policy
+
+# added for the task 4 generation script
+safety_batch_size: 16     # prompts per generation batch, the same for all four policies
+
+# added for the task 5 evaluation scripts
+math_batch_size: 16       # prompts per generation batch, the same for all three policies
+math_max_prompt_length: 512  # longest gsm8k / svamp prompt is well under this, so no problem text is ever cut

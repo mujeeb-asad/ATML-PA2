@@ -43,6 +43,11 @@ class PairwiseAIJudge:
             self.cache = json.loads(self.cache_path.read_text(encoding="utf-8"))
         else:
             self.cache = {}
+        #added for the evaluation -> the judge's raw decoded text for every verdict, kept next to the cache. the verdict
+        #logic below is unchanged, this only makes a genuine TIE distinguishable from unparseable output (which the
+        #parser also maps to TIE), so ambiguous judge outputs can be reported separately as the manual asks
+        self.raw_path = self.cache_path.with_name(self.cache_path.stem + "_raw.json")
+        self.raw = json.loads(self.raw_path.read_text(encoding="utf-8")) if self.raw_path.exists() else {}
 
         self.tokenizer = AutoTokenizer.from_pretrained(
             cfg["ai_judge_model"], padding_side="left", use_fast=True
@@ -101,7 +106,21 @@ class PairwiseAIJudge:
         self.cache[key] = result
         self.cache_path.parent.mkdir(parents=True, exist_ok=True)
         self.cache_path.write_text(json.dumps(self.cache, indent=2), encoding="utf-8")
+        self.raw[key] = decoded
+        self.raw_path.write_text(json.dumps(self.raw, indent=2), encoding="utf-8")
         return result
+
+    def output_kind(self, problem: str, a: str, b: str):
+        #added -> what the judge actually wrote for this pair, next to the verdict the parser made of it ->
+        #  "clean"           exactly one kind of label (A, B or TIE), the verdict is the judge's answer
+        #  "unparsed"        no label at all, the TIE it was given is the parser's fallback
+        #  "multiple_labels" more than one kind of label (e.g. "A, B"), the parser kept the first one
+        #None when no raw output was recorded for the pair
+        raw = self.raw.get(self._key(problem, a, b))
+        if raw is None:
+            return None
+        labels = set(re.findall(r"\b(A|B|TIE)\b", raw))
+        return "unparsed" if not labels else "clean" if len(labels) == 1 else "multiple_labels"
 
     def group_rewards(self, problem: str, responses: list[str]):
         k = len(responses)

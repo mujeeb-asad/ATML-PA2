@@ -1,0 +1,7 @@
+policy,failure_correct,failure_missing_final_format,failure_truncated_no_final,failure_wrong_final_answer,dataset
+sft,0.2866666666666667,0.6166666666666667,0.0166666666666666,0.08,gsm
+rlvr,0.2933333333333333,0.61,0.0166666666666666,0.08,gsm
+rlaif,0.28,0.6333333333333333,0.0166666666666666,0.07,gsm
+sft,0.46,0.41,0.0,0.13,transfer
+rlvr,0.45,0.42,0.0,0.13,transfer
+rlaif,0.44,0.43,0.0,0.13,transfer

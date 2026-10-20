@@ -1,0 +1,15 @@
+{
+  "run": "fork_eps0.5_kl0.1",
+  "updates": 8,
+  "prompts_per_update": 1,
+  "ppo_epochs": 2,
+  "clip_epsilon": 0.5,
+  "kl_beta": 0.1,
+  "max_response_length": 512,
+  "seed": 6304,
+  "generated_tokens": 2517,
+  "wall_clock_s": 119.91590897800052,
+  "peak_vram_gb": 8.001734733581543,
+  "gpu": "NVIDIA L4",
+  "output": "/root/pa2/outputs/task2_ppo/fork_eps0.5_kl0.1"
+}

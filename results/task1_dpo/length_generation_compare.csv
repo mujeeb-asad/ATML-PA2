@@ -1,0 +1,3 @@
+model,heldout_length_mean,heldout_length_std,word_limit_compliance,word_limit_words_mean,word_limit_tokens_mean,word_limit_tokens_std
+standard,157.082763671875,104.26147524362112,0.3625,43.5,51.3,25.294959972294876
+length_balanced,154.01034545898438,104.88944868149837,0.4625,40.3125,47.7375,20.762191448640483

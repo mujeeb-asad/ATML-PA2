@@ -8,7 +8,7 @@ from pathlib import Path
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
-from common.data import load_yaml, read_jsonl
+from common.data import load_yaml, read_jsonl, repo_path, write_jsonl
 from common.models import resolve_dtype
 
 LABELS = {
@@ -102,6 +102,26 @@ def judge_one(tok, model, prompt, response, max_new_tokens=64):
     return parse_json(generated)
 
 
+def judge_file(tok, model, rows, cache, max_new_tokens):
+    #the judge decodes greedily, so the same (prompt, response) text always gets the same label. the four policies
+    #often give word-for-word the same answer, so each distinct pair is judged once and its label reused from the cache
+    judged = []
+    for i, row in enumerate(rows):
+        key = (row["prompt"], row["response"])
+        if key not in cache:
+            cache[key] = judge_one(tok, model, row["prompt"], row["response"], max_new_tokens=max_new_tokens)
+        verdict = cache[key]
+        judged.append({
+            **row,
+            "judge_label": verdict["label"], #one of the five behaviour labels, AMBIGUOUS also covers unparseable output
+            "judge_confidence": verdict["confidence"], #kept for auditing only, never used as a score
+            "judge_rationale": verdict["rationale_tag"],
+        })
+        if (i + 1) % 50 == 0:
+            print(f"  judged {i + 1}/{len(rows)}", flush=True)
+    return judged
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="configs/feedback.yaml")
@@ -110,12 +130,33 @@ def main():
     cfg = load_yaml(args.config)
     tok, model = load_judge(cfg)
     print("Fixed Task 4 judge loaded:", cfg["ai_judge_model"])
+    outdir = repo_path(cfg["results_dir"]) / "task4_safety"
+    max_new_tokens = int(cfg["judge_max_new_tokens"])
+
+    #by default every policy's generated file is judged. --input judges a single file instead
     if args.input:
-        rows = read_jsonl(args.input)
-        print("Input rows:", len(rows))
-    raise NotImplementedError(
-        "TODO(student): apply judge_one to your frozen-policy response files, cache the labels, and implement the required Task 4 aggregation."
-    )
+        inputs = [Path(args.input)]
+    else:
+        inputs = [outdir / f"generated_{name}.jsonl" for name in ["sft", "dpo", "ppo", "grpo"]]
+
+    cache = {}
+    for path in inputs:
+        target = path.with_name(path.name.replace("generated_", "judged_"))
+        if target.exists():
+            print(f"{target.name} already exists, skipping")
+            #its labels still seed the cache, so identical responses in the remaining files are not judged again
+            for row in read_jsonl(target):
+                cache[(row["prompt"], row["response"])] = {
+                    "label": row["judge_label"], "confidence": row["judge_confidence"], "rationale_tag": row["judge_rationale"]}
+            continue
+        rows = read_jsonl(path)
+        print("Input rows:", len(rows), path.name)
+        judged = judge_file(tok, model, rows, cache, max_new_tokens)
+        write_jsonl(target, judged)
+        counts = {}
+        for row in judged:
+            counts[row["judge_label"]] = counts.get(row["judge_label"], 0) + 1
+        print(f"{target.name} -> {counts}")
 
 
 if __name__ == "__main__":

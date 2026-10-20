@@ -1,0 +1,4 @@
+dataset,policy,n,exact_accuracy,format_compliance,length_mean,length_std,truncation_rate,failure_correct,failure_missing_final_format,failure_wrong_final_answer,win_rate_vs_sft,wins_vs_sft,ties_vs_sft,losses_vs_sft,identical_to_sft
+transfer,sft,100,0.46,0.59,163.06,70.90328906334318,0.0,0.46,0.41,0.13,,,,,
+transfer,rlvr,100,0.45,0.58,163.58,72.05708570293417,0.0,0.45,0.42,0.13,0.5,0.0,100.0,0.0,94.0
+transfer,rlaif,100,0.44,0.57,163.62,72.07298800521593,0.0,0.44,0.43,0.13,0.51,3.0,96.0,1.0,87.0

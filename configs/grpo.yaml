@@ -16,3 +16,7 @@ output: outputs/task3_grpo/standard
 results_dir: results/task3_grpo
 group_cache: cached/grpo_k_cache.jsonl
 cache_generation_cap: 768
+
+# evaluation (added for the held-out evaluation in common/rl_eval.py; identical for every policy)
+generation_batch_size: 16
+eval_batch_size: 4        # teacher-forced scoring batch, the full-vocab logits are the memory bottleneck

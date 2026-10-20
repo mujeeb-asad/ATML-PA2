@@ -1,0 +1,17 @@
+{
+  "run": "fork_grpo",
+  "loss_type": "grpo",
+  "updates": 8,
+  "prompts_per_update": 1,
+  "num_generations": 4,
+  "policy_epochs": 1,
+  "clip_epsilon": 0.2,
+  "kl_beta": 0.1,
+  "max_completion_length": 512,
+  "seed": 6304,
+  "generated_tokens": 9672,
+  "wall_clock_s": 146.24433194699986,
+  "peak_vram_gb": 14.551736831665039,
+  "gpu": "NVIDIA L4",
+  "output": "/root/pa2/outputs/task3_grpo/fork_grpo"
+}

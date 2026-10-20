@@ -1,0 +1,14 @@
+{
+  "standard_train": {
+    "n_pairs": 1500,
+    "frac_chosen_longer": 0.5526666666666666,
+    "mean_word_gap_chosen_minus_rejected": 29.426,
+    "median_word_gap": 10.0
+  },
+  "length_balanced_train": {
+    "n_pairs": 1500,
+    "frac_chosen_longer": 0.478,
+    "mean_word_gap_chosen_minus_rejected": 2.490666666666667,
+    "median_word_gap": 0.0
+  }
+}

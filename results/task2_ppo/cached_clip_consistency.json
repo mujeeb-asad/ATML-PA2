@@ -1,0 +1,12 @@
+{
+  "midpoint_vs_cached_old_mean_abs_logp_difference": 0.0257992185652256,
+  "midpoint_vs_cached_old_max_abs_logp_difference": 3.651545763015747,
+  "reference_vs_cached_ref_mean_abs_logp_difference": 0.026414470747113228,
+  "reference_vs_cached_ref_max_abs_logp_difference": 3.6517181396484375,
+  "cached_old_vs_cached_ref_mean_abs_logp_difference": 0.018441010266542435,
+  "n_rollouts": 32,
+  "n_response_tokens": 8814,
+  "update_abs_log_ratio_mean": 0.0023716355208307505,
+  "update_abs_log_ratio_p99": 0.017013993114233017,
+  "update_abs_log_ratio_max": 0.05579495429992676
+}
