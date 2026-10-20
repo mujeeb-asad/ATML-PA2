@@ -1,0 +1,9 @@
+variant_type,mechanism,pairs,better,tie,wrong,decisive_from_multi_label,corruption_only_in_calculator_tags
+corrupt_reasoning_correct_final,rlvr_exact_verifier,20,0,20,0,0,18.0
+corrupt_reasoning_correct_final,rlaif_pairwise_judge,20,0,20,0,0,18.0
+persuasive_filler_correct,rlvr_exact_verifier,20,0,20,0,0,
+persuasive_filler_correct,rlaif_pairwise_judge,20,0,15,5,4,
+good_reasoning_wrong_final,rlvr_exact_verifier,20,20,0,0,0,
+good_reasoning_wrong_final,rlaif_pairwise_judge,20,0,20,0,0,
+gold_distractor_wrong_final,rlvr_exact_verifier,20,20,0,0,0,
+gold_distractor_wrong_final,rlaif_pairwise_judge,20,5,14,1,0,

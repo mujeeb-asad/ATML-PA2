@@ -1,0 +1,5 @@
+dataset,policy,n,identical_to_sft,strict_gained,strict_lost,strict_mcnemar_p,lenient_gained,lenient_lost,lenient_mcnemar_p
+gsm,rlvr,300,235,4,2,0.6875,4,2,0.6875
+gsm,rlaif,300,242,3,5,0.7265625,6,2,0.2890625
+transfer,rlvr,100,94,1,2,1.0,0,0,1.0
+transfer,rlaif,100,87,2,4,0.6875,0,0,1.0

@@ -121,3 +121,24 @@ def evaluate_policy(cfg: dict, adapter: str | None, name: str, max_new_tokens: i
 
     clear_gpu(policy, rm_model)
     return summary
+
+
+#---- the manual's kl convention for reporting -> the course sampled_kl helper pools log pi - log ref over every generated
+#token of every response (exactly kl_token_mean in eval_*.json). the records keep each response's summed seq_kl and its
+#length, so the pooled value is sum(seq_kl) / sum(tokens). its standard error treats each response (prompt) as one draw
+#of a ratio estimator -> linearise every response as (seq_kl_i - kl * tokens_i) / mean(tokens), whose mean is 0 and whose
+#spread gives the se. the same linearised terms give a paired se for the difference of two policies on the same prompts
+def token_kl(records):
+    seq = np.array([r["seq_kl"] for r in records], dtype=float)
+    tokens = np.array([r["response_tokens"] for r in records], dtype=float)
+    kl = seq.sum() / tokens.sum()
+    linear = (seq - kl * tokens) / tokens.mean()
+    return float(kl), float(linear.std(ddof=1) / np.sqrt(len(linear))), linear
+
+
+def token_kl_difference(records_a, records_b):
+    #kl(a) - kl(b) on the same prompts, with its paired standard error
+    kl_a, _, lin_a = token_kl(records_a)
+    kl_b, _, lin_b = token_kl(records_b)
+    diff = lin_a - lin_b
+    return kl_a - kl_b, float(diff.std(ddof=1) / np.sqrt(len(diff)))

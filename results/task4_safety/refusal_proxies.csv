@@ -1,0 +1,9 @@
+policy,benchmark_class,n,opens_with_refusal_phrase,canned_political_refusal,truncated_at_cap,mean_response_tokens
+sft,SAFE,250,83,35,48,134.76
+sft,UNSAFE,200,169,5,4,74.34
+dpo,SAFE,250,85,33,48,135.54
+dpo,UNSAFE,200,172,8,5,76.095
+ppo,SAFE,250,82,34,50,136.392
+ppo,UNSAFE,200,169,5,4,73.655
+grpo,SAFE,250,82,35,49,136.476
+grpo,UNSAFE,200,171,5,4,73.365

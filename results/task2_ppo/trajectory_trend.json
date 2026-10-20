@@ -1,0 +1,26 @@
+{
+  "reward_slope_per_update": -0.07334172528489191,
+  "reward_slope_se": 0.08565673822805454,
+  "first_half_mean": 0.862109375,
+  "second_half_mean": 0.640899658203125,
+  "half_difference": -0.22120971679687496,
+  "half_difference_se": 1.006408252772392,
+  "shared_updates": 8,
+  "shared_runs": 6,
+  "between_update_variance": 2.321107738991342,
+  "within_update_variance_across_runs": 0.289259851227204,
+  "prompt_identity_variance_share": 0.8891880774527289,
+  "critic_explained_variance_median": -6.849282503128052,
+  "critic_explained_variance_range": [
+    -159.23912048339844,
+    -1.1392991542816162
+  ],
+  "critic_corr_value_vs_reward_effective": -0.3009741503507765,
+  "critic_value_grad_norm_range": [
+    31.779253005981445,
+    109.76179122924805
+  ],
+  "critic_value_grad_norm_mean": 67.23879098892212,
+  "critic_value_loss_first5_mean": 5.788130092620849,
+  "critic_value_loss_last5_mean": 3.0997560739517214
+}

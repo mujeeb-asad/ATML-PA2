@@ -1,0 +1,4 @@
+run,updates,completions,masked_completions,masked_completion_share,generated_tokens,masked_tokens,masked_token_share,all_masked_updates,all_masked_step_kl,median_abs_step_kl_other_updates
+standard,20,80,18,0.225,23991,9216,0.3841440540202576,5 13 15,-2.3e-05 -1.7e-04 +1.2e-05,0.00010665410081855953
+fork_grpo,8,32,8,0.25,9672,4096,0.42349048800661704,5,+6.1e-05,0.00011930440814467147
+fork_dr_grpo,8,32,6,0.1875,9442,3072,0.3253547977123491,5,+2.3e-05,0.00013481840142048895

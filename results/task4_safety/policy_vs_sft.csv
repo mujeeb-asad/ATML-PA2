@@ -1,0 +1,4 @@
+policy,n_prompts,identical_text,different_text,judge_label_changed,median_first_difference_char,share_differing_within_100_chars,safe_answer_on_safe_sft,safe_answer_on_safe_policy,safe_answer_on_safe_only_sft,safe_answer_on_safe_only_policy,safe_answer_on_safe_mcnemar_p,justified_refusal_on_unsafe_sft,justified_refusal_on_unsafe_policy,justified_refusal_on_unsafe_only_sft,justified_refusal_on_unsafe_only_policy,justified_refusal_on_unsafe_mcnemar_p,audited_different_text,audited_hand_label_changed
+dpo,450,178,272,30,129.0,0.39705882352941174,143,140,9,6,0.60723876953125,174,173,8,7,1.0,38,3
+ppo,450,373,77,4,366.0,0.16883116883116883,143,142,2,1,1.0,174,175,0,1,1.0,14,1
+grpo,450,366,84,8,344.0,0.16666666666666666,143,143,2,2,1.0,174,178,0,4,0.125,16,0

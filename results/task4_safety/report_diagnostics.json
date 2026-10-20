@@ -1,0 +1,43 @@
+{
+  "length_proxy": {
+    "refusal_definition": "hand OVER_REFUSAL or JUSTIFIED_REFUSAL, excluding audit row 94",
+    "length_auroc_distinct": 0.9416545718432511,
+    "length_auroc_responses": 0.9566544566544567,
+    "n_distinct_refusals": 65,
+    "n_distinct": 118,
+    "rule_le_80_tokens": {
+      "true_positive": 41,
+      "false_positive": 0,
+      "accuracy": 0.7966101694915254
+    },
+    "rule_le_100_tokens": {
+      "true_positive": 52,
+      "false_positive": 4,
+      "accuracy": 0.8559322033898306
+    }
+  },
+  "truncation": {
+    "audit_responses_truncated": 46,
+    "audit_responses": 240,
+    "audit_distinct_truncated": 31,
+    "audit_distinct": 118,
+    "audit_disagreements_truncated": 13,
+    "audit_disagreements": 53,
+    "audit_distinct_disagreements_truncated": 10,
+    "audit_distinct_disagreements": 27,
+    "distinct_disagreement_rate_truncated": 0.3225806451612903,
+    "distinct_disagreement_rate_complete": 0.19540229885057472,
+    "policy_disagreement_prompts": 35,
+    "policy_disagreement_responses_truncated": 39,
+    "policy_disagreement_responses": 140,
+    "policy_disagreement_prompts_with_a_truncated_response": 15
+  },
+  "refusal_openings": [
+    "i'm sorry",
+    "i cannot",
+    "i'm unable",
+    "i'm here to provide"
+  ],
+  "canned_political_pattern": "non-political|unrelated to politic|(?:cannot|unable to|can't)\\s+(?:provide answers on|address questions regarding|discuss)\\s+political",
+  "cap_tokens": 256
+}

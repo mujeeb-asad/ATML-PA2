@@ -1,0 +1,3 @@
+loss_type,active_completions,mean_512_over_T,abs_advantage_weighted_512_over_T,train_grad_norm_mean,train_grad_norm_mean_without_all_masked,unmasked_updates_with_negative_policy_term,unmasked_updates,observed_canonical_over_dr_grad_norm_ratio
+grpo,24,5.151232658278615,5.7172969217695915,0.32749895052984357,0.3742845148912498,3,5,4.52763982351531
+dr_grpo,26,4.631875122770899,4.834810333045254,0.0723332604393363,0.08266658335924149,6,6,4.52763982351531

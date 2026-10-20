@@ -1,0 +1,7 @@
+dataset,policy,n,strict_accuracy,format_compliance,non_parseable,parseable_accuracy,lenient_accuracy,non_parseable_last_number_gold,format_truncated,format_hash_dollar,format_hash_text,format_boxed,format_bold_number,format_other_prose
+gsm,sft,300,0.2866666666666667,0.36666666666666664,190,0.7818181818181819,0.6433333333333333,107,5,4,30,36,81,34
+gsm,rlvr,300,0.29333333333333333,0.37333333333333335,188,0.7857142857142857,0.65,107,5,5,26,35,85,32
+gsm,rlaif,300,0.28,0.35,195,0.8,0.6566666666666666,113,5,6,30,35,84,35
+transfer,sft,100,0.46,0.59,41,0.7796610169491526,0.79,33,0,0,1,5,34,1
+transfer,rlvr,100,0.45,0.58,42,0.7758620689655172,0.79,34,0,0,2,5,34,1
+transfer,rlaif,100,0.44,0.57,43,0.7719298245614035,0.79,35,0,0,3,5,34,1

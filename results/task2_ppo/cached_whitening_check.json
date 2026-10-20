@@ -1,0 +1,8 @@
+{
+  "single_rollout_whitening_max_abs_sum_over_response": 1.049041748046875e-05,
+  "batch32_whitening_per_response_mean_range": [
+    -0.10899386554956436,
+    1.579472541809082
+  ],
+  "corr_batch32_response_mean_vs_terminal_reward": 0.16266570241124997
+}

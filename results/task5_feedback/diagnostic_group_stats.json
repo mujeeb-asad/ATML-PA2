@@ -1,0 +1,9 @@
+{
+  "groups": 20,
+  "groups_all_rlaif_0_5": 7,
+  "groups_zero_std": 7,
+  "visible_corruption_problems": [
+    "1200",
+    "1245"
+  ]
+}

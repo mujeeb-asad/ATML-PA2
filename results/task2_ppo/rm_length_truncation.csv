@@ -1,0 +1,5 @@
+statistic,value,se,n,prompts,corr,share_negative
+within_prompt_reward_per_doubling_of_length,0.49943802363534867,0.03133252800126275,1079,175.0,0.4686021425733021,
+within_prompt_truncated_minus_finished,-1.238501255391321,0.2088513044282756,41,41.0,,0.8780487804878049
+pooled_mean_reward_finished,1.5501960952425264,,1464,,,
+pooled_mean_reward_truncated,0.9589955946978401,,136,,,

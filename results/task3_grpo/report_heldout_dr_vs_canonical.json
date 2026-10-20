@@ -1,0 +1,12 @@
+{
+  "comparison": "fork_dr_grpo minus fork_grpo",
+  "reward_delta": -0.010970478057861327,
+  "reward_delta_se": 0.04306347476374178,
+  "kl_token_delta": 0.0001060176726515093,
+  "kl_token_delta_se": 2.555975751265582e-05,
+  "kl_per_response_delta": 8.406904723372591e-05,
+  "kl_per_response_delta_se": 5.246993049790211e-05,
+  "kl_sequence_sum_delta": 0.027770159099018202,
+  "kl_sequence_sum_delta_se": 0.006930174457237056,
+  "identical_text": 132
+}

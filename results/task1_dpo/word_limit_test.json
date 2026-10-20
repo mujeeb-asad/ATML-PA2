@@ -1,0 +1,21 @@
+{
+  "comparison": "standard minus base, compliant samples per prompt",
+  "per_prompt_difference": [
+    -2,
+    0,
+    -1,
+    0,
+    0,
+    -4,
+    0,
+    -2,
+    0,
+    -1
+  ],
+  "prompts_down": 5,
+  "prompts_up": 0,
+  "prompts_unchanged": 5,
+  "total_compliant_base": 39,
+  "total_compliant_standard": 29,
+  "sign_flip_p_two_sided": 0.0625
+}
