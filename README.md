@@ -52,7 +52,7 @@ modal volume get atml /pa2/results/task1_executed.ipynb task1_dpo/task1_executed
 
 - GPU: Tasks 2, 3 and 5 ran on an NVIDIA L4 (24 GB), the current `GPU` setting in `run_modal.py` (recorded in the Task 2/3 `train_summary_*.json`). Task 1 ran on an A100-40GB, the setting at commit `535dbc6`; set `GPU = 'A100-40GB'` to reproduce it on the same card. Task 4 reports no compute numbers.
 - With `--detach`, keep the local client alive until the run finishes, or close it with Ctrl-C. Terminating the client process (e.g. with `kill` or `timeout`) cancels the run.
-- The Task 4 smoke test uses the adapters left by the Task 1–3 smoke tests, so run those first.
+- The Task 4 smoke test uses the adapters left by the Task 1 to 3 smoke tests, so run those first.
 
 The same notebooks run locally without Modal (GPU required for every task except the table-only steps):
 
@@ -101,7 +101,7 @@ python -m task3_grpo.compare_normalization --config configs/grpo.yaml    # Step 
 
 ### Task 4: Safety calibration (`configs/feedback.yaml`, notebook `task4_safety/task4.ipynb`)
 
-Needs the three standard adapters from Tasks 1–3 in `outputs/`.
+Needs the three standard adapters from Tasks 1 to 3 in `outputs/`.
 
 ```bash
 python -m task4_safety.generate_responses --config configs/feedback.yaml   # Step 1: greedy responses from SFT, DPO, PPO, GRPO to all 450 XSTest prompts
@@ -145,7 +145,7 @@ python -m task5_feedback.report_diagnostics --config configs/feedback.yaml
 python -m report.make_figures
 ```
 
-KL convention in the report: the course estimator (`common.metrics.sampled_kl`, mean of log π − log π_ref over tokens) is applied to each response, then averaged over responses (the `kl_per_response*` columns). The token-pooled `kl_token_mean` and the per-response sum `kl_sequence_mean` in the `eval_*.json` files are kept for reference.
+KL convention in the report: the course estimator (`common.metrics.sampled_kl`, mean of log π − log π_ref) pooled over every generated response token, as the course helper aggregates it. This is `kl_token_mean` in `eval_*.json` and the `kl_token` column in the report tables. Its per-prompt standard error comes from `common.rl_eval.token_kl`. The per-response mean (`kl_per_response*`) and the per-response sum (`kl_sequence_mean`) are kept as secondary views.
 
 ## 4. Where each result lives
 
@@ -169,7 +169,7 @@ Peak VRAM and wall-clock for every training run are in its `train_summary_*.json
 
 ## 6. Changes to the supplied code
 
-**The three deliberate defects (Tasks 1–3), fixed and commented in place:**
+**The three deliberate defects (Tasks 1 to 3), fixed and commented in place:**
 
 - `task1_dpo/dpo.py`, `dpo_loss`: the reference margin was added (`policy_margin + ref_margin`); it is subtracted.
 - `task2_ppo/ppo.py`, `ppo_policy_loss`: the clipped surrogate used `torch.maximum`; it uses `torch.minimum`.
